@@ -91,9 +91,9 @@ to calc-rates
     ; natural mortality
     set cum-natmort d
     ; reproduction
-    set cum-reprod cum-natmort + r * neigh-0
+    set cum-reprod cum-natmort + (r / 4) * neigh-0 
     ; local infection
-    set cum-locinfect cum-reprod +  beta * neigh-I
+    set cum-locinfect cum-reprod +  (beta / 4) * neigh-I 
     ; bm is the sum of all rates. This is also equal to the last event in the
     ; cumulative sum. This is b_m in equation (5) of ABMs and Math Workshop.pdf
     set bm cum-locinfect
@@ -120,12 +120,12 @@ to freq-pairs
   let cII sum [neigh-I] of infecteds
   let cI0 sum [neigh-0] of infecteds
   let c00 sum [p-neigh-0] of empty-patches
-  set total-pairs cSS + cSI + cS0 + cII + cI0 + c00
+  set total-pairs cSS + 2 * cSI + 2 * cS0 + cII + 2 * cI0 + c00
   set pSS cSS / total-pairs
-  set pSI cSI / total-pairs
-  set pS0 cS0 / total-pairs
+  set pSI 2 * cSI / total-pairs
+  set pS0 2 * cS0 / total-pairs
   set pII cII / total-pairs
-  set pI0 cI0 / total-pairs
+  set pI0 2 * cI0 / total-pairs
   set p00 c00 / total-pairs
 end
 

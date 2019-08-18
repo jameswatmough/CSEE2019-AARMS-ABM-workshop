@@ -122,7 +122,7 @@ legend("topright", legend=c("xS", "xI"),
 # There is another file you can load in "SI_Output2.csv" with different parameter values
 # and you can make your own output using BehaviorSpace from Netlogo using the instructions
 # similiar to those provided in Section 2.2 Code files for the non-spatial Wolf-Sheep example.
-ABMdata<-read.table("/Users/amyhurford/Desktop/ABM-Workshop-CSEE2019-AJ/code/SI_Output.csv",
+ABMdata<-read.table("Local SI experiment-table.csv",
                     header = T,   # set columns names true
                     sep = ",",    # define the separator between columns
                     skip = 6,     # skip first 6 rows
